@@ -1,0 +1,21 @@
+@import '../../styles/var.scss';
+
+.heroDetails {
+  .header {
+    background-color: $primary;
+    border-block: 3px solid $secondary;
+
+    h1 {
+      font-size: 3rem;
+    }
+  }
+
+  img {
+    width: 100%;
+    max-width: 500px;
+  }
+
+  span {
+    color: $secondary;
+  }
+}

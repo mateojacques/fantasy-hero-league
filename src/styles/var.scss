@@ -1,0 +1,25 @@
+@function shade($color, $percentage) {
+  @return mix(black, $color, $percentage);
+}
+
+//COLORS
+
+$primary: #111;
+$secondary: #4bf4b8;
+$secondaryDark: shade($secondary, 30%);
+$intelligence: #fcdb45;
+$intelligenceDark: shade($intelligence, 30%);
+$strength: #e75252;
+$strengthDark: shade($strength, 30%);
+$durability: #4554dd;
+$durabilityDark: shade($durability, 30%);
+$speed: #64ca74;
+$speedDark: shade($speed, 30%);
+$combat: #603a0d;
+$combatDark: shade($combat, 30%);
+$power: #c25fff;
+$powerDark: shade($power, 30%);
+
+//FONTS
+
+$font: 'Inter', 'Roboto', sans-serif;

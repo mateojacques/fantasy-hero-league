@@ -1,0 +1,10 @@
+.search .input {
+  outline: none;
+  border: none;
+  font-size: clamp(2rem, 10vw, 4rem);
+}
+
+.search .grid {
+  gap: 50px;
+}
+/*# sourceMappingURL=search.module.css.map */

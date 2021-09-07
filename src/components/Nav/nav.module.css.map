@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "AAEA,AACE,IADE,CACF,CAAC,CAAC;EACA,eAAe,EAAE,IAAI;CAKtB;;AAPH,AAII,IAJA,CACF,CAAC,CAGC,IAAI,CAAC;EACH,KAAK,ECAC,OAAO;CDCd;;AANL,AASE,IATE,GASA,GAAG,CAAC;EACJ,GAAG,EAAE,IAAI;CACV",
+    "sources": [
+        "nav.module.scss",
+        "../../styles/var.scss"
+    ],
+    "names": [],
+    "file": "nav.module.css"
+}

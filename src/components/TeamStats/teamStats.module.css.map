@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,UAAU,CAAC;EACT,GAAG,EAAE,IAAI;CAUV;;AAXD,AAEE,UAFQ,GAEN,GAAG,CAAC;EACJ,GAAG,EAAE,IAAI;CAOV;;AAVH,AAII,UAJM,GAEN,GAAG,CAEH,GAAG,CAAC;EACF,SAAS,EAAE,IAAI;CAChB;;AANL,AAOI,UAPM,GAEN,GAAG,CAKH,CAAC,CAAC;EACA,SAAS,EAAE,eAAe;CAC3B",
+    "sources": [
+        "teamStats.module.scss"
+    ],
+    "names": [],
+    "file": "teamStats.module.css"
+}

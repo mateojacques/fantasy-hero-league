@@ -1,0 +1,12 @@
+.teamStats {
+  gap: 40px;
+  > div {
+    gap: 10px;
+    img {
+      max-width: 50px;
+    }
+    p {
+      transform: translateY(5px);
+    }
+  }
+}

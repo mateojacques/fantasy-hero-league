@@ -1,0 +1,50 @@
+.hero {
+  max-width: 320px;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+}
+
+.hero .name {
+  font-size: 1.5rem;
+  font-weight: 800;
+  display: inline-block;
+  text-transform: uppercase;
+  background-color: #4bf4b8;
+  letter-spacing: 2px;
+  padding: 20px;
+}
+
+.hero > div {
+  text-transform: uppercase;
+}
+
+.hero .stats {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 20px;
+  background-color: #fff;
+}
+
+.hero .stats > div {
+  gap: 10px;
+}
+
+.hero .stats img {
+  width: 30px;
+}
+
+.hero .buttons {
+  gap: 20px;
+}
+
+.hero:hover {
+  -webkit-filter: saturate(200%);
+          filter: saturate(200%);
+  opacity: 0.9;
+}
+/*# sourceMappingURL=hero.module.css.map */

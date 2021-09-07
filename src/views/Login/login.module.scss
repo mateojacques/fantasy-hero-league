@@ -1,0 +1,65 @@
+@import '../../styles/var.scss';
+
+@function shade($color, $percentage) {
+  @return mix(black, $color, $percentage);
+}
+
+.login {
+  height: 100vh;
+}
+
+.form {
+  h1 {
+    font-size: clamp(3.5rem, 15vw, 5rem);
+    border-bottom: 3px solid $secondary;
+  }
+
+  form {
+    gap: 30px;
+
+    input {
+      border: none;
+      transition: 0.2s ease;
+    }
+
+    input:focus {
+      outline: 2px solid $secondary !important;
+    }
+
+    .submit {
+      background-color: $secondary;
+      color: #fff;
+      font-weight: 600;
+      transition: 0.5s ease;
+    }
+
+    .submit:hover {
+      background-color: shade($secondary, 20%);
+    }
+  }
+}
+
+.graphics {
+  background: url(../../assets/LoginScreen.png) no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  h1 {
+    width: 100%;
+    font-size: clamp(2rem, 7vw, 5rem);
+    font-weight: 800;
+    text-align: center;
+    letter-spacing: 2px;
+
+    span {
+      font-size: clamp(4rem, 10vw, 8rem);
+      color: $secondary;
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .graphics {
+    display: none !important;
+  }
+}

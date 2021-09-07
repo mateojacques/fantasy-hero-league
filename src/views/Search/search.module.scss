@@ -1,0 +1,11 @@
+.search {
+  .input {
+    outline: none;
+    border: none;
+    font-size: clamp(2rem, 10vw, 4rem);
+  }
+
+  .grid {
+    gap: 50px;
+  }
+}

@@ -1,0 +1,11 @@
+html {
+  font-family: "Inter", "Roboto", sans-serif !important;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+/*# sourceMappingURL=index.css.map */

@@ -1,0 +1,12 @@
+.nav a {
+  text-decoration: none;
+}
+
+.nav a span {
+  color: #4bf4b8;
+}
+
+.nav > div {
+  gap: 20px;
+}
+/*# sourceMappingURL=nav.module.css.map */

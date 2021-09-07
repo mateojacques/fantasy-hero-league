@@ -1,0 +1,18 @@
+.heroDetails .header {
+  background-color: #111;
+  border-block: 3px solid #4bf4b8;
+}
+
+.heroDetails .header h1 {
+  font-size: 3rem;
+}
+
+.heroDetails img {
+  width: 100%;
+  max-width: 500px;
+}
+
+.heroDetails span {
+  color: #4bf4b8;
+}
+/*# sourceMappingURL=heroDetails.module.css.map */

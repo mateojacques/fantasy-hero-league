@@ -1,0 +1,34 @@
+@import '../../styles/var.scss';
+
+.home {
+  .header {
+    width: 90%;
+    border-bottom: 3px solid $secondary;
+    h2 {
+      font-size: clamp(1.3rem, 10vw, 3rem);
+    }
+
+    > div {
+      gap: 10px;
+
+      img {
+        width: 50px;
+      }
+
+      h3 {
+        color: $primary;
+        display: none;
+      }
+    }
+  }
+
+  .team {
+    gap: 100px;
+  }
+}
+
+@media screen and (min-width: 650px) {
+  .home .header > div h3 {
+    display: unset;
+  }
+}

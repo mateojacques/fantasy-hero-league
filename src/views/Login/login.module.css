@@ -1,0 +1,60 @@
+.login {
+  height: 100vh;
+}
+
+.form h1 {
+  font-size: clamp(3.5rem, 15vw, 5rem);
+  border-bottom: 3px solid #4bf4b8;
+}
+
+.form form {
+  gap: 30px;
+}
+
+.form form input {
+  border: none;
+  -webkit-transition: 0.2s ease;
+  transition: 0.2s ease;
+}
+
+.form form input:focus {
+  outline: 2px solid #4bf4b8 !important;
+}
+
+.form form .submit {
+  background-color: #4bf4b8;
+  color: #fff;
+  font-weight: 600;
+  -webkit-transition: 0.5s ease;
+  transition: 0.5s ease;
+}
+
+.form form .submit:hover {
+  background-color: #3cc393;
+}
+
+.graphics {
+  background: url(../../assets/LoginScreen.png) no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.graphics h1 {
+  width: 100%;
+  font-size: clamp(2rem, 7vw, 5rem);
+  font-weight: 800;
+  text-align: center;
+  letter-spacing: 2px;
+}
+
+.graphics h1 span {
+  font-size: clamp(4rem, 10vw, 8rem);
+  color: #4bf4b8;
+}
+
+@media screen and (max-width: 767px) {
+  .graphics {
+    display: none !important;
+  }
+}
+/*# sourceMappingURL=login.module.css.map */

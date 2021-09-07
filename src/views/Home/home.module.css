@@ -1,0 +1,32 @@
+.home .header {
+  width: 90%;
+  border-bottom: 3px solid #4bf4b8;
+}
+
+.home .header h2 {
+  font-size: clamp(1.3rem, 10vw, 3rem);
+}
+
+.home .header > div {
+  gap: 10px;
+}
+
+.home .header > div img {
+  width: 50px;
+}
+
+.home .header > div h3 {
+  color: #111;
+  display: none;
+}
+
+.home .team {
+  gap: 100px;
+}
+
+@media screen and (min-width: 650px) {
+  .home .header > div h3 {
+    display: unset;
+  }
+}
+/*# sourceMappingURL=home.module.css.map */

@@ -1,0 +1,17 @@
+.teamStats {
+  gap: 40px;
+}
+
+.teamStats > div {
+  gap: 10px;
+}
+
+.teamStats > div img {
+  max-width: 50px;
+}
+
+.teamStats > div p {
+  -webkit-transform: translateY(5px);
+          transform: translateY(5px);
+}
+/*# sourceMappingURL=teamStats.module.css.map */

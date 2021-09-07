@@ -1,0 +1,11 @@
+@import '../styles/var.scss';
+
+html {
+  font-family: $font !important;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}

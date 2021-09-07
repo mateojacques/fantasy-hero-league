@@ -1,0 +1,15 @@
+@import '../../styles/var.scss';
+
+.nav {
+  a {
+    text-decoration: none;
+
+    span {
+      color: $secondary;
+    }
+  }
+
+  > div {
+    gap: 20px;
+  }
+}

@@ -1,0 +1,45 @@
+@import '../../styles/var.scss';
+
+.hero {
+  max-width: 320px;
+  transition: 0.3s ease;
+
+  .name {
+    font-size: 1.5rem;
+    font-weight: 800;
+    display: inline-block;
+    text-transform: uppercase;
+    background-color: $secondary;
+    letter-spacing: 2px;
+    padding: 20px;
+  }
+
+  > div {
+    text-transform: uppercase;
+  }
+
+  .stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    gap: 20px;
+    background-color: #fff;
+
+    > div {
+      gap: 10px;
+    }
+
+    img {
+      width: 30px;
+    }
+  }
+
+  .buttons {
+    gap: 20px;
+  }
+}
+
+.hero:hover {
+  filter: saturate(200%);
+  opacity: 0.9;
+}

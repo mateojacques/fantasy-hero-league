@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "AAEA,AACE,YADU,CACV,OAAO,CAAC;EACN,gBAAgB,ECEV,IAAI;EDDV,YAAY,EAAE,GAAG,CAAC,KAAK,CCEf,OAAO;CDGhB;;AARH,AAKI,YALQ,CACV,OAAO,CAIL,EAAE,CAAC;EACD,SAAS,EAAE,IAAI;CAChB;;AAPL,AAUE,YAVU,CAUV,GAAG,CAAC;EACF,KAAK,EAAE,IAAI;EACX,SAAS,EAAE,KAAK;CACjB;;AAbH,AAeE,YAfU,CAeV,IAAI,CAAC;EACH,KAAK,ECXG,OAAO;CDYhB",
+    "sources": [
+        "heroDetails.module.scss",
+        "../../styles/var.scss"
+    ],
+    "names": [],
+    "file": "heroDetails.module.css"
+}
