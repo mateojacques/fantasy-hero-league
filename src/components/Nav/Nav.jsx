@@ -9,16 +9,11 @@ const Nav = ({ search }) => {
     setWindowWidth(window.innerWidth)
   }
 
+  // Handle resizing with an event listener
   useEffect(() => {
     window.addEventListener('resize', widthUpdate)
 
     return () => window.removeEventListener('resize', widthUpdate)
-  }, [])
-
-  useEffect(() => {
-    window.addEventListener('load', widthUpdate)
-
-    return () => window.removeEventListener('load', widthUpdate)
   }, [])
 
   return (

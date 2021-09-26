@@ -1,4 +1,6 @@
 import styles from './home.module.css'
+import { useState, useEffect } from 'react'
+import { useStore } from 'react-redux'
 import { Nav, Hero, TeamStats } from '../../components'
 import speedIcon from '../../assets/svg/speed.svg'
 import strengthIcon from '../../assets/svg/strength.svg'
@@ -7,10 +9,67 @@ import durabilityIcon from '../../assets/svg/durability.svg'
 import powerIcon from '../../assets/svg/power.svg'
 import combatIcon from '../../assets/svg/combat.svg'
 
-const Home = ({ heroes, teamStats, onRemoveHeroFromTeam }) => {
+const Home = () => {
+  // Component State
+  const [heroes, setHeroes] = useState([])
+  const [teamStats, setTeamStats] = useState({})
   const { intelligence, strength, speed, durability, power, combat } = teamStats
 
+  // Use the Redux store and subscribe to changes to update the heroes state
+
+  const store = useStore()
+
+  store.subscribe(() => {
+    setHeroes(store.getState().heroes)
+  })
+
+  // Load team initially when the component is mounted
+
+  function loadTeam() {
+    // Get the team from the localStorage and parse it from string to JSON
+    const team = JSON.parse(localStorage.getItem('team'))
+
+    if (team) {
+      // Initialize the stats variables
+      let intelligence = 0
+      let strength = 0
+      let speed = 0
+      let durability = 0
+      let power = 0
+      let combat = 0
+
+      let stats = {}
+
+      // If the team is parsed as an array, loop through it and add every stat to get the total amount of the team
+      if (Array.isArray(team)) {
+        team.forEach((hero) => {
+          intelligence += parseInt(hero.intelligence)
+          strength += parseInt(hero.strength)
+          speed += parseInt(hero.speed)
+          durability += parseInt(hero.durability)
+          power += parseInt(hero.power)
+          combat += parseInt(hero.combat)
+        })
+      }
+
+      // Else if the team is a single object, assign its values to the team stats value
+      else {
+        intelligence += parseInt(team.intelligence)
+        strength += parseInt(team.strength)
+        speed += parseInt(team.speed)
+        durability += parseInt(team.durability)
+        power += parseInt(team.power)
+        combat += parseInt(team.combat)
+      }
+
+      // Assign the values to a 'stats' object and set it in the component state
+      stats = { intelligence, strength, speed, durability, power, combat }
+      setTeamStats(stats)
+    }
+  }
+
   function generateTeamBadge() {
+    // Check the largest value of the stats and set it into a variable
     const stats = [intelligence, strength, speed, durability, power, combat]
     const maxStat = Math.max.apply(Math.max, stats)
     const statNames = [
@@ -23,6 +82,7 @@ const Home = ({ heroes, teamStats, onRemoveHeroFromTeam }) => {
     ]
     const maxStatName = statNames[stats.indexOf(maxStat)]
 
+    // Based on the value of maxStatName, display the corresponding badge for the team
     switch (maxStatName) {
       case 'intelligence':
         return (
@@ -71,6 +131,12 @@ const Home = ({ heroes, teamStats, onRemoveHeroFromTeam }) => {
     }
   }
 
+  useEffect(() => {
+    // Load the team and set the component state to match the Redux store
+    loadTeam()
+    setHeroes(store.getState().heroes)
+  }, []) //eslint-disable-line
+
   return (
     <main className={`${styles.home} w-100 h-100 d-flex flex-column`}>
       <Nav search={true} />
@@ -86,9 +152,9 @@ const Home = ({ heroes, teamStats, onRemoveHeroFromTeam }) => {
       <div
         className={`${styles.team} w-100 d-flex flex-wrap py-5 justify-content-center`}
       >
-        {!heroes && <h3>Add some heroes to start!</h3>}
-
-        {heroes &&
+        {heroes.length === 0 ? (
+          <h3>Add some heroes to start!</h3>
+        ) : (
           heroes.map((hero) => (
             <Hero
               key={hero.id}
@@ -103,9 +169,12 @@ const Home = ({ heroes, teamStats, onRemoveHeroFromTeam }) => {
               power={hero.power}
               combat={hero.combat}
               addOption={false}
-              onRemoveHeroFromTeam={onRemoveHeroFromTeam}
+              heroes={heroes}
+              teamStats={teamStats}
+              setTeamStats={setTeamStats}
             />
-          ))}
+          ))
+        )}
       </div>
     </main>
   )

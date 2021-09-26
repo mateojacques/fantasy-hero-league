@@ -9,6 +9,8 @@ const HeroDetails = () => {
   const [heroDetails, setHeroDetails] = useState({})
   const [isLoading, setIsLoading] = useState(true)
 
+  // Get the hero data from the API and set it to the component state
+
   useEffect(() => {
     async function fetchHero() {
       await axios

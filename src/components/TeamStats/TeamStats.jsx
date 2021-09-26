@@ -17,6 +17,7 @@ const TeamStats = ({ teamStats }) => {
   const [teamPower, setTeamPower] = useState(0)
   const [teamCombat, setTeamCombat] = useState(0)
 
+  // Update the team stats everytime there is a change
   useEffect(() => {
     setTeamIntelligence(intelligence)
     setTeamStrength(strength)

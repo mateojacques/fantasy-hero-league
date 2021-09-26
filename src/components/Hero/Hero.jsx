@@ -1,3 +1,4 @@
+import { useDispatch, useStore } from 'react-redux'
 import styles from './hero.module.css'
 import speedIcon from '../../assets/svg/speed.svg'
 import strengthIcon from '../../assets/svg/strength.svg'
@@ -18,10 +19,11 @@ const Hero = ({
   durability,
   power,
   combat,
-  onAddHeroToTeam,
-  onRemoveHeroFromTeam,
   addOption,
+  teamStats,
+  setTeamStats,
 }) => {
+  // Create the 'hero' object to pass it to functions later
   const hero = {
     id,
     name,
@@ -35,9 +37,71 @@ const Hero = ({
     combat,
   }
 
+  // Use the Redux store and assign the useDispatch hook to a variable
+  const store = useStore()
+  const dispatch = useDispatch()
+
   function handleImageError(e) {
+    // If there is not image available for the 'hero' component, set a default one
     const img = e.target
     img.src = defaultImg
+  }
+
+  function addHeroToTeam(hero) {
+    // Dispatch the Redux action
+    dispatch({ type: 'ADD_HERO_TO_TEAM', payload: hero })
+
+    // Get the team from the local storage
+    const team = localStorage.getItem('team')
+
+    // If there is no team in the local storage, create it
+    if (!team) {
+      let updHeroes = JSON.stringify(hero)
+      localStorage.setItem('team', updHeroes)
+    }
+    // Else, add a new hero to the team until the team reaches a length of 6
+    else if (team.split('}').length <= 6) {
+      const heroes = store.getState().heroes
+      let updHeroes = [...heroes]
+      localStorage.setItem('team', JSON.stringify(updHeroes))
+    }
+  }
+
+  function removeHeroFromTeam(hero) {
+    // Dispatch the Redux action
+    dispatch({ type: 'REMOVE_HERO_FROM_TEAM', payload: hero })
+
+    // Get the team from the local storage and create a updatedTeam variable
+    const team = JSON.parse(localStorage.getItem('team'))
+    let updTeam
+
+    // If the team is parsed into an array, filter through it and remove the hero from the team
+    if (Array.isArray(team))
+      updTeam = team.filter((teamHero) => teamHero.id !== hero.id)
+    // Else the team is empty because the last member is being removed
+    else updTeam = []
+
+    // If the team is empty, remove the localStorage item
+    if (updTeam.length === 0) localStorage.removeItem('team')
+    // Else, set it as a string
+    else {
+      localStorage.setItem('team', JSON.stringify(updTeam))
+    }
+
+    // Recalculate the stats for the entire team and set them to the component state
+
+    let { intelligence, strength, speed, durability, power, combat } = teamStats
+
+    intelligence -= parseInt(hero.intelligence)
+    strength -= parseInt(hero.strength)
+    speed -= parseInt(hero.speed)
+    durability -= parseInt(hero.durability)
+    power -= parseInt(hero.power)
+    combat -= parseInt(hero.combat)
+
+    let updStats = { intelligence, strength, speed, durability, power, combat }
+
+    setTeamStats(updStats)
   }
 
   return (
@@ -93,7 +157,7 @@ const Hero = ({
         {addOption && (
           <button
             className={`btn btn-success w-50`}
-            onClick={() => onAddHeroToTeam(hero)}
+            onClick={() => addHeroToTeam(hero)}
           >
             ADD
           </button>
@@ -101,7 +165,7 @@ const Hero = ({
         {!addOption && (
           <button
             className={`btn btn-danger w-50`}
-            onClick={() => onRemoveHeroFromTeam(hero)}
+            onClick={() => removeHeroFromTeam(hero)}
           >
             REMOVE
           </button>

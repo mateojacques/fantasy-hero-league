@@ -9,16 +9,27 @@ const Login = () => {
 
   function handleUserLogin(e, email, password) {
     e.preventDefault()
+
+    // Create the user object
     const user = { email, password }
+
+    // Clear the input values
     setEmail('')
     setPassword('')
-    axios.post('http://challenge-react.alkemy.org', user).then((res) => {
-      setUserToken(res.data.token)
-      window.location.reload()
-    })
+
+    // Make the post request to the Alkemy API and set the user token
+    // Then, refresh the page to access the app
+    axios
+      .post('http://challenge-react.alkemy.org', user)
+      .then((res) => {
+        setUserToken(res.data.token)
+        window.location.reload()
+      })
+      .catch((err) => console.log(err))
   }
 
   useEffect(() => {
+    // If there is a userToken, set it to the localStorage
     if (userToken) {
       localStorage.setItem('userToken', userToken)
     }
