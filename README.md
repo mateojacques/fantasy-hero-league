@@ -1,7 +1,7 @@
 # Fantasy Hero League - Alkemy React Challenge 2021
 
 Fantasy Hero League is web application that lets you assemble a team of superheros and supervillians to fight against both crime and kindness. This project was made as part of the Alkemy React Challenge.
-Tech stack: React, Bootstrap, Sass, HTML, Vanilla JS, Axios.
+Tech stack: React, Redux, Bootstrap, Sass, HTML, Vanilla JS, Axios.
 
 ## Setup
 
